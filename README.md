@@ -19,8 +19,8 @@
 - [x] Use someArray<b>.identified(by: \.self)</b> instead of conforming to the <b>Identifiable</b> protocol
 
 ## Project 1: FlagGuessing
-- [x] Declare all @State variables as private when possible (recommended by Apple)
-- [x] Let alerts appear based on a boolean @State variable (declarative way):
+- [x] Declare all <b>@State</b> variables as <b>private</b> when possible (recommended by Apple)
+- [x] Let alerts appear based on a boolean @State variable (<b>declarative</b> way):
 ```Swift
 .presentation($showingAlert) { 
   // Present alert
@@ -28,7 +28,7 @@
   // SwiftUI will automatically toggle 'showingAlert' variable.
 }
 ```
-- [x] Creation of an Alert and attaching a custom action to the dismiss button: 
+- [x] Creation of an <b>Alert</b> and attaching a <b>custom action</b> to the dismiss button: 
 ```Swift
 Alert(title: Text(alertTitle), message: Text(score), dismissButton: .default(Text("Continue")) {
   self.nextQuestion()
