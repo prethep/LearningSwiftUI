@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  ListedPhotosViewer
+//  FlagGuessing
 //
-//  Created by PP on 11.06.19.
+//  Created by PP on 12.06.19.
 //  Copyright © 2019 PP. All rights reserved.
 //
 
@@ -21,9 +21,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Use a UIHostingController as window root view controller
         let window = UIWindow(frame: UIScreen.main.bounds)
-//        let myVC = UIViewController()
-//        myVC.view.backgroundColor = .orange
-//        window.rootViewController = myVC
         window.rootViewController = UIHostingController(rootView: ContentView())
         self.window = window
         window.makeKeyAndVisible()
