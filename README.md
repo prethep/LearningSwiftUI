@@ -12,6 +12,7 @@
       ...
       didChange.send(())
     }
+  }
 ```
 - [x] Learn about the <b>BindableObject</b> protocol
 - [x] Notify about changes using <b>didChange.send(())</b>
