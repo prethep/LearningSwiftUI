@@ -1,6 +1,4 @@
-# Learning SwiftUI
-
-![alt text](https://developer.apple.com/news/images/og/swiftui-og.png)
+![alt text](https://i.ibb.co/0jCsnrY/banner.png)
 
 ## Project 1: ListedPhotosViewer
 - [x] Using the Combine Framework: <b>var didChange = PassthroughSubject<Void, Never>()</b>
