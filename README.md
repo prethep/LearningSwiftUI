@@ -19,7 +19,7 @@
 - [x] Understand the difference between <b>@State</b> and <b>@ObjectBinding</b>
 - [x] Use someArray<b>.identified(by: \.self)</b> instead of conforming to the <b>Identifiable</b> protocol
 
-## Project 1: FlagGuessing
+## Project 2: FlagGuessing
 - [x] Declare all <b>@State</b> variables as <b>private</b> when possible (recommended by Apple)
 - [x] Let alerts appear based on a boolean @State variable (<b>declarative</b> way):
 ```Swift
