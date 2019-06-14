@@ -93,4 +93,5 @@ struct ContentView : View {
                 .background(Color.orange)
                 .edgesIgnoringSafeArea(.all)
     ...
+}
 ``` 
