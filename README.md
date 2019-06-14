@@ -51,6 +51,12 @@ class BeaconDetector: NSObject, BindableObject, CLLocationManagerDelegate {
         locationManager?.requestWhenInUseAuthorization()
     }
     ...
+    func locationManager(_ manager: CLLocationManager, didRange beacons: [CLBeacon], 
+                            satisfying beaconConstraint: CLBeaconIdentityConstraint) {
+       ...
+    }
+    ...
+}
 ```
 - [x] Modifier Sequence matters (everytime a modifier is added, a new view is created.)
 - [x] To ignore all safe area:
