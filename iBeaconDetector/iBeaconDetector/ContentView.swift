@@ -16,6 +16,7 @@ class BeaconDetector: NSObject, BindableObject, CLLocationManagerDelegate {
     var lastDistance = CLProximity.unknown
     
     override init() {
+        super.init()
         locationManager = CLLocationManager()
         locationManager?.delegate = self
         locationManager?.requestWhenInUseAuthorization()
