@@ -95,3 +95,68 @@ struct ContentView : View {
     ...
 }
 ``` 
+## Project 4: BetterRest
+- [x] Setting up a DatePicker:
+```Swift
+DatePicker($wakeUp, displayedComponents: .hourAndMinute)
+```
+- [x] Setting up a Stepper:
+```Swift
+Stepper(value: $sleepAmount, in: 4...12, step: 0.25) {
+    Text("\(sleepAmount, specifier: "%g") hours")
+}
+```
+- [x] Rounding up "8.0000.." -> 8 and "8.2500000" -> 8.25:
+```Swift
+Text("\(16.0/2.0, specifier: "%g"))
+```
+- [x] Create a trailing navigation bar button:
+```Swift
+.navigationBarItems(trailing:
+    Button(action: calculateBedtime) {
+        Text("Calculate")
+    }
+)
+```
+- [x] Presenting an alert:
+```Swift
+.presentation($showingAlert) {
+    Alert(title: Text(alertTitle), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+```
+- [x] Change only hours and minutes from current DateTime():
+```Swift
+    static var defaultWakeTime: Date {
+        var components = DateComponents()
+        components.hour = 8
+        components.minute = 0
+        return Calendar.current.date(from: components) ?? Date()
+    }
+```
+
+- [x] Use CoreML Model to predict:
+```Swift
+func calculateBedtime() {
+    let model = SleepCalculator()
+
+    do {
+        let components = Calendar.current.dateComponents([.hour, .minute], from: wakeUp)
+        let hour = (components.hour ?? 0) * 60 * 60
+        let minute = (components.minute ?? 0) * 60
+
+        let prediction = try model.prediction(coffee: Double(coffeeAmount), estimatedSleep: Double(sleepAmount), wake: Double(hour + minute))
+
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+
+        let sleepTime = wakeUp - prediction.actualSleep
+        alertMessage = formatter.string(from: sleepTime)
+        alertTitle = "Your ideal bedtime is..."
+    } catch {
+        alertTitle = "Error"
+        alertMessage = "Sorry, there was a problem calculating your bedtime."
+    }
+
+    showingAlert = true
+
+}
+```
