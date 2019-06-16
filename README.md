@@ -160,3 +160,30 @@ func calculateBedtime() {
 
 }
 ```
+
+## Project 5: WordScramble
+- [x] Call a function <b>onAppear</b>
+```Swift
+VStack {
+  ...
+}
+.onAppear {
+    self.startGame()
+}
+```
+- [x] Add a 'on commit' closure (on return key pressed) to a textfield and hide the keyboard.
+```Swift
+  TextField($newWord) {
+      // On commit closure
+      self.addNewWord()
+      UIApplication.shared.keyWindow?.endEditing(true)
+  }
+```
+- [x] Add textfield styles
+```Swift
+  TextField($newWord) {
+      ...
+  }
+  .textFieldStyle(.roundedBorder)
+  .padding()
+```
