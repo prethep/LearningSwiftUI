@@ -187,3 +187,24 @@ VStack {
   .textFieldStyle(.roundedBorder)
   .padding()
 ```
+
+## Project 6: CupcakeCorner
+- [x] Make a Bindable Object 'Codable' by ignoring the PassthroughSubject
+```Swift
+class Order: BindableObject, Codable {
+    enum CodingKeys: String, CodingKey {
+        case type, quantity, extraFrosting, addSprinkles, name, streetAddress, city, zip
+    }
+    ...
+}
+```
+- [x] Call 'didChange.send(())' using a 'didSet'
+```Swift
+    ..
+    var type = 0 { didSet { update() } }
+    var quantity = 3 { didSet{ update() } }
+    
+    func update() {
+        didChange.send(())
+    }
+```
