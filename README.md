@@ -1,5 +1,51 @@
 ![alt text](https://i.ibb.co/0jCsnrY/banner.png)
 
+## Project 0: Landmarks
+- [x] Edit the VStack initializer to align the views by their leading edges.
+```Swift
+VStack(alignment: .leading) { ... }
+```
+- [x] A spacer expands to make its containing view use all of the space of its parent view, instead of having its size defined only by its contents.
+
+- [x] Create a custom image view.
+```Swift
+struct CircleImage: View {
+    var body: some View {
+        Image("turtlerock")
+            .clipShape(Circle())
+            .overlay(
+                Circle().stroke(Color.white, lineWidth: 4))
+            .shadow(radius: 10)
+    }
+}
+```
+- [x] To use UIView subclasses from within SwiftUI, you wrap the other view in a SwiftUI view that conforms to the UIViewRepresentable protocol.
+```Swift
+import SwiftUI
+import MapKit
+
+struct MapView: UIViewRepresentable {
+    func makeUIView(context: Context) -> MKMapView {
+        MKMapView(frame: .zero)
+    }
+
+    func updateUIView(_ view: MKMapView, context: Context) {
+        let coordinate = CLLocationCoordinate2D(
+            latitude: 34.011286, longitude: -116.166868)
+        let span = MKCoordinateSpan(latitudeDelta: 2.0, longitudeDelta: 2.0)
+        let region = MKCoordinateRegion(center: coordinate, span: span)
+        view.setRegion(region, animated: true)
+    }
+}
+```
+- [x] To layer the image view on top of the map view, give the image an offset of -130 points vertically, and padding of -130 points from the bottom of the view.
+```Swift
+CircleImage()
+    .offset(y: -130)
+    .padding(.bottom, -130)
+```
+- [x] To extend to the top edge of the screen, add the <b>edgesIgnoringSafeArea(.top)</b> modifier to the map view.
+
 ## Project 1: ListedPhotosViewer
 - [x] Explore the Combine Framework:
 ```Swift
